@@ -30,6 +30,7 @@ public class PlayerController : NetworkBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			CmdFire ();
 		}
+
 	}
 
 	[Command]
@@ -47,8 +48,8 @@ public class PlayerController : NetworkBehaviour {
 		//Spawn bulllet on the clients 
 		NetworkServer.Spawn(bullet);
 
-
 		// Destroy the bullet after 2 seconds
 		Destroy (bullet, 2.0f);
 	}
+
 }
