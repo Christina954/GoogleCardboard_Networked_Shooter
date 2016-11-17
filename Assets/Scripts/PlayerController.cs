@@ -28,13 +28,13 @@ public class PlayerController : NetworkBehaviour {
 		transform.Translate(0, 0, z);
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			CmdFire (connectionToClient.connectionId);
+			CmdFire ();
 		}
 
 	}
 
 	[Command]
-	void CmdFire(int firingConn)
+	void CmdFire()
 	{
 		// Create the Bullet from the Bullet Prefab
 		var bullet = (GameObject)Instantiate (
