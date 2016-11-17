@@ -28,12 +28,13 @@ public class PlayerController : NetworkBehaviour {
 		transform.Translate(0, 0, z);
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			CmdFire ();
+			CmdFire (connectionToClient.connectionId);
 		}
+
 	}
 
 	[Command]
-	void CmdFire()
+	void CmdFire(int firingConn)
 	{
 		// Create the Bullet from the Bullet Prefab
 		var bullet = (GameObject)Instantiate (
@@ -47,8 +48,8 @@ public class PlayerController : NetworkBehaviour {
 		//Spawn bulllet on the clients 
 		NetworkServer.Spawn(bullet);
 
-
 		// Destroy the bullet after 2 seconds
 		Destroy (bullet, 2.0f);
 	}
+
 }
