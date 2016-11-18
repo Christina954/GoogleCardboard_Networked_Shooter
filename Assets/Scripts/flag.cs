@@ -7,9 +7,9 @@ public class flag : MonoBehaviour {
 	{
 
 		var hit = coll.gameObject;
-		var score = hit.GetComponent<Score> ();
-		if (score.hasFlag == false) {
-			score.takeFlag();
+		var health = hit.GetComponent<Health> ();
+		if (health != false) {
+			health.TakeDamage(-10);
 		}
 		Destroy(gameObject);
 	}

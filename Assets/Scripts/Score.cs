@@ -20,10 +20,10 @@ public class Score : NetworkBehaviour {
 			return;
 
 		currentScore += 10;
-		if (!hasFlag) {
-			CmdFlag ();
-			hasFlag = true;
-		}
+//		if (!hasFlag) {
+//			CmdFlag ();
+//			hasFlag = true;
+//		}
 
 	}
 
@@ -33,17 +33,17 @@ public class Score : NetworkBehaviour {
 		Debug.Log (currentScore);
 	}
 
-	[Command]
-	void CmdFlag()
-	{
-		Vector3 tmp = this.gameObject.transform.position;
-		tmp.x = 0.5f;
-		tmp.z = 0.5f;
-
-		var flag = (GameObject)Instantiate (flagprefab, tmp, this.gameObject.transform.rotation);
-
-		NetworkServer.Spawn (flag);
-	}
+//	[Command]
+//	void CmdFlag()
+//	{
+//		Vector3 tmp = this.gameObject.transform.position;
+//		tmp.x = 0.5f;
+//		tmp.z = 0.5f;
+//
+//		var flag = (GameObject)Instantiate (flagprefab, tmp, this.gameObject.transform.rotation);
+//
+//		NetworkServer.Spawn (flag);
+//	}
 
 
 }
