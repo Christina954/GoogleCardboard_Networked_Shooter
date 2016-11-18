@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class flag : MonoBehaviour {
+public class Flag : MonoBehaviour {
+	public GameObject flagPrefab;
 
-	void OnCollisionEnter(Collision coll)
+	void OnCollisionEnter(Collision collision)
 	{
+		var hit = collision.gameObject;
 
-		var hit = coll.gameObject;
-		var score = hit.GetComponent<Score> ();
-		if (score.hasFlag == false) {
-			score.takeFlag();
+		if (flagPrefab.Equals (hit)) {
+			var health = hit.GetComponent<playerHealth> ();
+			if (health != null) {
+				health.TakeDamage (10);
+			}
+
+			Destroy (gameObject);
 		}
-		Destroy(gameObject);
 	}
 }

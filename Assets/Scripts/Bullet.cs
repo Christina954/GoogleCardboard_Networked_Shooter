@@ -3,16 +3,15 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	void OnCollisionEnter(Collision coll)
+	void OnCollisionEnter(Collision collision)
 	{
-		
-		var hit = coll.gameObject;
-		var health = hit.GetComponent<Health> ();
+		var hit = collision.gameObject;
+		var health = hit.GetComponent<playerHealth>();
 		if (health  != null)
 		{
 			health.TakeDamage(10);
 		}
+
 		Destroy(gameObject);
 	}
-
 }
