@@ -12,11 +12,11 @@ public class LandMine : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		Instantiate (explosion, mineObj.transform.position, mineObj.transform.rotation);
 		var hit = other.gameObject;
-		var health = hit.GetComponent<Health> ();
-		if (health  != null)
-		{
-			health.TakeDamage(5);
-		}
+
+		//Health and Scoring Code
+		Debug.Log (other.name + " has been logged");
+//		Player _player = GameManager.GetPlayer(other.name);
+//		_player.TakeDamage (5);
 		Destroy (mineObj);
 	}
 

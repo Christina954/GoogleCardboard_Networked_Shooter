@@ -32,7 +32,6 @@ public class PlayerShoot : NetworkBehaviour {
 		RaycastHit _hit;
 		if (Physics.Raycast (cam.transform.position, cam.transform.forward, out _hit, weapon.range, mask)) {
 			Debug.Log ("We hit: " + _hit.collider.name);
-			Debug.Log ("this is the " + _hit.collider.tag + " and this is the " + PLAYER_TAG);
 			Debug.Log (_hit.collider.tag == PLAYER_TAG);
 			Debug.Log (string.Equals(_hit.collider.tag, PLAYER_TAG));
 			if (string.Equals(_hit.collider.tag, PLAYER_TAG)) {
@@ -45,8 +44,8 @@ public class PlayerShoot : NetworkBehaviour {
 	[Command]
 	void CmdPlayerShot(string _playerID, int _damage){
 		Debug.Log (_playerID + " has been shot");
-
 		Player _player = GameManager.GetPlayer (_playerID);
 		_player.TakeDamage (_damage);
+
 	}
 }
