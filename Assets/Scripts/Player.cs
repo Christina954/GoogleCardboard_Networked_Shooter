@@ -28,6 +28,9 @@ public class Player : NetworkBehaviour {
 	}
 
 	public void TakeDamage(int amount){
+		if (!isServer)
+			return;
+		
 		currentHealth -= amount;
 		Debug.Log (transform.name + " now has " + currentHealth + " health.");
 
