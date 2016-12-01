@@ -32,8 +32,6 @@ public class PlayerShoot : NetworkBehaviour {
 		RaycastHit _hit;
 		if (Physics.Raycast (cam.transform.position, cam.transform.forward, out _hit, weapon.range, mask)) {
 			Debug.Log ("We hit: " + _hit.collider.name);
-			Debug.Log (_hit.collider.tag == PLAYER_TAG);
-			Debug.Log (string.Equals(_hit.collider.tag, PLAYER_TAG));
 			if (string.Equals(_hit.collider.tag, PLAYER_TAG)) {
 				Debug.Log ("i am on the iniside");
 				CmdPlayerShot (_hit.collider.name, weapon.damage);
