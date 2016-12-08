@@ -9,7 +9,7 @@ public class anissaLookWalk : NetworkBehaviour {
 	//Angle at which walk/stop will be triggered (x value of camera?)
 	public float toggleAngle = 30.0f;
 	//how fast to move
-	public float speed = 0.1f;
+	public float speed = 0.01f;
 	//should I move forward or not
 	public bool moveforward;
 	//character controller script
@@ -55,6 +55,9 @@ public class anissaLookWalk : NetworkBehaviour {
 			tmp.y = 2.0f;
 			//tmp = tmp * Time.deltaTime * speed;
 			parentMove.transform.position = new Vector3(tmp.x, 2.0f, tmp.z);
+			float step = speed * Time.deltaTime;
+			//transform.position = Vector3.MoveTowards(parentMove, tmp, step);
+			Debug.Log(Body.transform.position);
 
 		}
 	}
