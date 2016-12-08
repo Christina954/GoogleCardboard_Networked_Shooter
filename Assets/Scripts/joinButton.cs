@@ -4,11 +4,11 @@ using UnityEngine.Networking.Match;
 using System.Collections;
 using System.Collections.Generic;
 
-public class joinButton : NetworkBehaviour , IGvrGazeResponder {
+public class joinButton : MonoBehaviour , IGvrGazeResponder {
 
 	// Use this for initialization
 	void Start () {
-		
+		NetworkManager.singleton.StartMatchMaker();
 	}
 
 	// Update is called once per frame

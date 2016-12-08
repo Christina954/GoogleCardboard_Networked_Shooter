@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using System.Collections;
 
-public class createMatchButton : NetworkBehaviour , IGvrGazeResponder {
+public class createMatchButton : MonoBehaviour , IGvrGazeResponder {
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +33,7 @@ public class createMatchButton : NetworkBehaviour , IGvrGazeResponder {
 	/// Called when the viewer's trigger is used, between OnGazeEnter and OnGazeExit.
 	public void OnGazeTrigger() {
 		Debug.Log ("On Gaze Trigger");
+		Debug.Log (NetworkManager.singleton);
 		NetworkManager.singleton.matchMaker.CreateMatch("match", 4, true, "", "", "", 0, 0, OnMatchCreate);
 	}
 
