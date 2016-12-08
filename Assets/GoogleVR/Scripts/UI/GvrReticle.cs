@@ -54,6 +54,8 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   private float reticleInnerDiameter = 0.0f;
   private float reticleOuterDiameter = 0.0f;
 
+	public static Vector3 intersectionPT;
+
   void Start () {
     CreateReticleVertices();
 
@@ -93,6 +95,7 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                           bool isInteractive) {
     SetGazeTarget(intersectionPosition, isInteractive);
+		intersectionPT = intersectionPosition;
   }
 
   /// Called every frame the user is still looking at a valid GameObject. This
@@ -104,6 +107,7 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   public void OnGazeStay(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                          bool isInteractive) {
     SetGazeTarget(intersectionPosition, isInteractive);
+		intersectionPT = intersectionPosition;
   }
 
   /// Called when the user's look no longer intersects an object previously
@@ -232,4 +236,8 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
       reticleOuterAngle = kReticleMinOuterAngle;
     }
   }
+
+	public static Vector3 returnPt(){
+		return intersectionPT;
+	}
 }

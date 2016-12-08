@@ -14,6 +14,8 @@
 
 using UnityEngine;
 
+
+
 /// This script provides head tracking support for a camera.
 ///
 /// Attach this script to any game object that should match the user's head motion.
@@ -69,6 +71,7 @@ public class GvrHead : MonoBehaviour {
   /// objects that the user is looking at.
   public Ray Gaze {
     get {
+			
       UpdateHead();
       return new Ray(transform.position, transform.forward);
     }
@@ -108,7 +111,7 @@ public class GvrHead : MonoBehaviour {
     if (trackRotation) {
       var rot = GvrViewer.Instance.HeadPose.Orientation;
       if (target == null) {
-        transform.localRotation = rot;
+		transform.rotation = rot;
       } else {
         transform.rotation = target.rotation * rot;
       }
