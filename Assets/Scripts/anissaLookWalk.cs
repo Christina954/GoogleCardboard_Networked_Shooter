@@ -54,9 +54,9 @@ public class anissaLookWalk : NetworkBehaviour {
 			Debug.Log (tmp);
 			tmp.y = 2.0f;
 			//tmp = tmp * Time.deltaTime * speed;
-			//parentMove.transform.position = new Vector3(tmp.x, 2.0f, tmp.z);
+			parentMove.transform.position = new Vector3(tmp.x, 2.0f, tmp.z);
 			float step = speed * Time.deltaTime;
-			transform.position = Vector3.MoveTowards(parentMove, tmp, step);
+			//transform.position = Vector3.MoveTowards(parentMove, tmp, step);
 			Debug.Log(Body.transform.position);
 
 		}
