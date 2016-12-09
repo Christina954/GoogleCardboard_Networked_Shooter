@@ -23,10 +23,12 @@ public class Health : NetworkBehaviour {
 
 	public void TakeDamage(int amount)
 	{
+		
 		if (!isServer)
 			return;
 
 		currentHealth -= amount;
+		Debug.Log ("Current Health: " + currentHealth);
 		if (currentHealth <= 0)
 		{
 			if (destroyOnDeath)

@@ -103,7 +103,7 @@ public class anissaLookWalk : NetworkBehaviour
         if (Body.transform.eulerAngles.x >= toggleAngle && Body.transform.eulerAngles.x < 90.0f)
         {
 
-            Debug.Log("Euler Angle: First Loop" + Body.transform.eulerAngles.x);
+            //Debug.Log("Euler Angle: First Loop" + Body.transform.eulerAngles.x);
             moveforward = true;
 
         }
