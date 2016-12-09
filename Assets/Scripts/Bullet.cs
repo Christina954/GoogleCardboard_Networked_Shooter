@@ -7,9 +7,12 @@ public class Bullet : MonoBehaviour {
 	{
 		
 		var hit = coll.gameObject;
-		var health = hit.GetComponent<Health> ();
+		hit = hit.transform.parent.gameObject;
+		Debug.Log (hit + " " + hit);
+		var health = hit.GetComponent<Player> ();
 		if (health  != null)
 		{
+			Debug.Log ("Take Damage");
 			health.TakeDamage(10);
 		}
 		Destroy(gameObject);
