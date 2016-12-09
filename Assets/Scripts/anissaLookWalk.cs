@@ -121,7 +121,7 @@ public class anissaLookWalk : NetworkBehaviour
             tmp.y = 2.0f;//Maybe set this diferently for the bombs???
             //tmp = tmp * Time.deltaTime * speed;
             //parentMove.transform.position = new Vector3(temPos.x - ((tmp.x / 60)), 2.0f, temPos.z - ((tmp.z / 60)));
-            parentMove.transform.position = new Vector3(temPos.x +  (tmp.x - temPos.x)/60, 2.0f, temPos.z + (tmp.z - temPos.z)/60);
+            parentMove.transform.position = new Vector3(temPos.x +  (tmp.x - temPos.x)/20, 2.0f, temPos.z + (tmp.z - temPos.z)/60);
             //float step = speed * Time.deltaTime;
             //transform.position = Vector3.MoveTowards(parentMove, tmp, step);
             //Debug.Log(Body.transform.position);
