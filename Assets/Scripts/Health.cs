@@ -7,6 +7,7 @@ public class Health : NetworkBehaviour {
 
 	public const int maxHealth = 100;
 	public bool destroyOnDeath;
+	public RectTransform healthBar;
 
 	[SyncVar(hook = "OnChangeHealth")]
 	public int currentHealth = maxHealth;
@@ -43,6 +44,7 @@ public class Health : NetworkBehaviour {
 				RpcRespawn();
 			}
 		}
+		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
 	}
 
 	void OnChangeHealth (int currentHealth )
