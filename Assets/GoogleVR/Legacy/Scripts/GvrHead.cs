@@ -90,24 +90,14 @@ public class GvrHead : NetworkBehaviour {
 
   void Update() {
     updated = false;  // OK to recompute head pose.
-
-	if (!isLocalPlayer) {
-		return;
-	}
-
-    if (updateEarly) {
+	if (updateEarly) {
       UpdateHead();
     }
   }
 
   // Normally, update head pose now.
   void LateUpdate() {
-
-	if (!isLocalPlayer) {
-		return;
-	}
-
-    UpdateHead();
+	UpdateHead();
   }
 
   // Compute new head pose.
