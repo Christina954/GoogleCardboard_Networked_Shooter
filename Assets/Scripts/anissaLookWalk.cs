@@ -83,6 +83,7 @@ public class anissaLookWalk : NetworkBehaviour
     private Rigidbody rb;
     Vector3 temPos;
 
+	public bool islocal; 
     // Use this for initialization
     void Start()
     {
@@ -96,9 +97,11 @@ public class anissaLookWalk : NetworkBehaviour
     void Update()
     {
         if (!isLocalPlayer)
-        {
-            return;
+		{
+			islocal = isLocalPlayer;
+			return;
         }
+
         //Check to see if the head has rotated down to the toggleAngle, but not more than straight down
         if (Body.transform.eulerAngles.x >= toggleAngle && Body.transform.eulerAngles.x < 90.0f)
         {
@@ -121,7 +124,7 @@ public class anissaLookWalk : NetworkBehaviour
             tmp.y = 2.0f;//Maybe set this diferently for the bombs???
             //tmp = tmp * Time.deltaTime * speed;
             //parentMove.transform.position = new Vector3(temPos.x - ((tmp.x / 60)), 2.0f, temPos.z - ((tmp.z / 60)));
-            parentMove.transform.position = new Vector3(temPos.x +  (tmp.x - temPos.x)/20, 2.0f, temPos.z + (tmp.z - temPos.z)/60);
+            parentMove.transform.position = new Vector3(temPos.x +  (tmp.x - temPos.x)/20, 2.0f, temPos.z + (tmp.z - temPos.z)/20);
             //float step = speed * Time.deltaTime;
             //transform.position = Vector3.MoveTowards(parentMove, tmp, step);
             //Debug.Log(Body.transform.position);
