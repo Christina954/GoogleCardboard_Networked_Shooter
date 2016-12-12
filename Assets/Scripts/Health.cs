@@ -9,7 +9,7 @@ public class Health : NetworkBehaviour {
 	public bool destroyOnDeath;
 	public RectTransform healthBar;
 
-	[SyncVar]
+	[SyncVar(hook = "OnChangeHealth")]
 	public int currentHealth = maxHealth;
 
 	private NetworkStartPosition[] spawnPoints;
