@@ -44,12 +44,12 @@ public class Health : NetworkBehaviour {
 				RpcRespawn();
 			}
 		}
-		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+
 	}
 
 	void OnChangeHealth (int currentHealth )
 	{
-		Debug.Log("Health = " + currentHealth);
+		healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
 	}
 
 	[ClientRpc]
