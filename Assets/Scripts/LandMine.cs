@@ -18,7 +18,7 @@ public class LandMine : MonoBehaviour {
 		if (health  != null)
 		{
 			Debug.Log ("Take Damage");
-			health.TakeDamage(15);
+			health.TakeDamage(70);
 		}
 		Destroy(gameObject);
 
