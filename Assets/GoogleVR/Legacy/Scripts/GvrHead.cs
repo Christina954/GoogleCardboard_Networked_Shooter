@@ -13,7 +13,7 @@
 // limitations under the License.
 
 using UnityEngine;
-
+using UnityEngine.Networking;
 
 
 /// This script provides head tracking support for a camera.
@@ -34,7 +34,7 @@ using UnityEngine;
 /// the rotation is applied from where the positional offset is applied.  Use the
 /// #trackRotation and #trackPosition properties in this case.
 [AddComponentMenu("GoogleVR/GvrHead")]
-public class GvrHead : MonoBehaviour {
+public class GvrHead : NetworkBehaviour {
   /// Determines whether to apply the user's head rotation to this gameobject's
   /// orientation.  True means to update the gameobject's orientation with the
   /// user's head rotation, and false means don't modify the gameobject's orientation.
@@ -90,6 +90,11 @@ public class GvrHead : MonoBehaviour {
 
   void Update() {
     updated = false;  // OK to recompute head pose.
+
+	if (!isLocalPlayer) {
+		return;
+	}
+
     if (updateEarly) {
       UpdateHead();
     }
@@ -97,6 +102,11 @@ public class GvrHead : MonoBehaviour {
 
   // Normally, update head pose now.
   void LateUpdate() {
+
+	if (!isLocalPlayer) {
+		return;
+	}
+
     UpdateHead();
   }
 
