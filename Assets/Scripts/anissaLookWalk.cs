@@ -102,6 +102,7 @@ public class anissaLookWalk : NetworkBehaviour
 			return;
         }
 
+		islocal = isLocalPlayer;
         //Check to see if the head has rotated down to the toggleAngle, but not more than straight down
         if (Body.transform.eulerAngles.x >= toggleAngle && Body.transform.eulerAngles.x < 90.0f)
         {
